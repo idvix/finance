@@ -91,7 +91,7 @@ module Finance
     #   @transactions << Transaction.new(  600, :date => Time.new(1995,01,01))
     #   @transactions.xirr(0.6) #=> Rate("0.024851", :apr, :compounds => :annually)
     # @api public
-    def xirr(iterations=100)
+    def xirr(iterations=10)
       # Make sure we have a valid sequence of cash flows.
       positives, negatives = self.partition{ |t| t.amount >= 0 }
       if positives.empty? || negatives.empty?
